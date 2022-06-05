@@ -8,7 +8,7 @@ import {
   Switch,
   Collapse,
 } from '@mui/material';
-import DayOfWeek from '../../../types/DayOfWeek';
+import { DayOfWeek } from '../../../types/alarmConfiguration';
 
 interface DayPickerCardProps {
   isScheduleEnabled: boolean;

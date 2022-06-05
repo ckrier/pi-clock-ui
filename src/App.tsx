@@ -6,7 +6,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import NavigationBar from './components/NavigationBar/NavigationBar';
 import { themeOptions } from './components/Theme/Theme';
 import AlarmPage from './pages/AlarmPage';
-import RouteConstants from './types/RouteConstants';
+import RouteConstants from './types/routes';
 
 function App() {
   return (

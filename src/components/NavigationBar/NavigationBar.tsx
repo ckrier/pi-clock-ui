@@ -3,7 +3,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import { BottomNavigation, BottomNavigationAction } from '@mui/material';
 import { Alarm, MusicNote, Settings } from '@mui/icons-material';
 
-import RouteConstants from '../../types/RouteConstants';
+import RouteConstants from '../../types/routes';
 
 const NavigationBar: React.FC = () => {
   const [selectedTabIndex, setSelectedTabIndex] = useState(0);

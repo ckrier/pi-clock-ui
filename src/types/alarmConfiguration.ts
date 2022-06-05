@@ -1,2 +1,11 @@
 type DayOfWeek = 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday';
-export default DayOfWeek;
+
+type AlarmConfiguration = {
+  id: string;
+  enabled: boolean;
+  hour: number;
+  minute: number;
+  schedule?: DayOfWeek[];
+};
+
+export type { AlarmConfiguration, DayOfWeek };

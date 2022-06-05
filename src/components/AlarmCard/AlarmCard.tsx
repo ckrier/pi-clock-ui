@@ -1,3 +1,4 @@
+import React, { MouseEventHandler } from 'react';
 import {
   ButtonBase,
   Card,
@@ -6,17 +7,20 @@ import {
   Switch,
   Typography,
 } from '@mui/material';
+import { formatTime } from '../../util/timeHelpers';
 
 interface AlarmCardProps {
-  alarmTime: string;
-  isToggled: boolean;
-  onClick: () => void;
+  hour: number;
+  minute: number;
+  enabled: boolean;
+  onClick: MouseEventHandler;
   onToggle: (isToggled: boolean) => void;
 }
 
 const AlarmCard: React.FC<AlarmCardProps> = ({
-  alarmTime,
-  isToggled,
+  hour,
+  minute,
+  enabled,
   onClick,
   onToggle,
 }) => {
@@ -29,10 +33,14 @@ const AlarmCard: React.FC<AlarmCardProps> = ({
             direction="row"
             justifyContent="space-between"
           >
-            <Typography variant="h4">{alarmTime}</Typography>
+            <Typography variant="h4">{formatTime(hour, minute)}</Typography>
             <Switch
-              defaultChecked
-              //checked={isToggled}
+              checked={enabled}
+              onMouseDown={(e) => e.stopPropagation()} // stops ripple effect on ButtonBase
+              onClick={(e) => {
+                // prevents parent div from recieving switch clicks
+                e.stopPropagation();
+              }}
               onChange={(e) => {
                 onToggle(e.target.checked);
               }}
