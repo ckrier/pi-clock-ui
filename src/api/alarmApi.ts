@@ -1,5 +1,6 @@
 import { AlarmConfiguration, DayOfWeek } from '../types/alarmConfiguration';
 
+// trailing slash is import in firefox because after CORS preflight it adds it
 const BASE_URL = 'http://localhost:5000/alarms';
 
 export const getAlarms = async () => {
@@ -12,7 +13,9 @@ export const createAlarm = async (
   minute: number,
   schedule?: DayOfWeek[]
 ) => {
-  const response = await fetch(BASE_URL, {
+  // trailing slash is reuired for some reason for POST specifically
+  // likely because firefox adds it after CORS preflight options check
+  const response = await fetch(BASE_URL + '/', {
     method: 'POST',
     body: JSON.stringify({
       enabled: false,
