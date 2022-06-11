@@ -23,6 +23,7 @@ interface EditAlarmDialogProps {
   isOpen: boolean;
   onCancel: () => void;
   onSave: (date: Date, schedule?: DayOfWeek[]) => void;
+  onDelete: () => void;
   schedule?: DayOfWeek[];
 }
 
@@ -32,6 +33,7 @@ const EditAlarmDialog: React.FC<EditAlarmDialogProps> = ({
   isOpen,
   onCancel,
   onSave,
+  onDelete,
 }) => {
   const [date, setDate] = useState(defaultDate || new Date());
   const [isScheduleEnabled, setIsScheduleEnabled] = useState(!!defaultSchedule);
@@ -44,6 +46,8 @@ const EditAlarmDialog: React.FC<EditAlarmDialogProps> = ({
     setIsScheduleEnabled(!!defaultSchedule);
     setSchedule(defaultSchedule);
   }, [defaultDate, defaultSchedule]);
+
+  const isEditDialog = !!defaultDate; // default date provided, then is existing alarm to edit
 
   return (
     <Dialog
@@ -63,7 +67,7 @@ const EditAlarmDialog: React.FC<EditAlarmDialogProps> = ({
             <CloseRounded />
           </IconButton>
           <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-            {`${defaultDate ? 'Edit' : 'New'} Alarm`}
+            {`${isEditDialog ? 'Edit' : 'New'} Alarm`}
           </Typography>
           <Button
             autoFocus
@@ -90,6 +94,17 @@ const EditAlarmDialog: React.FC<EditAlarmDialogProps> = ({
             schedule={schedule || []}
             onScheduleChanged={setSchedule}
           />
+          {isEditDialog && (
+            <Button
+              color="error"
+              fullWidth
+              size="large"
+              variant="outlined"
+              onClick={onDelete}
+            >
+              Delete Alarm
+            </Button>
+          )}
         </Stack>
       </Page>
     </Dialog>

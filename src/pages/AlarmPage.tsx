@@ -7,8 +7,13 @@ import AlarmCard from '../components/AlarmCard/AlarmCard';
 import Fab from '../components/Fab/Fab';
 import EditAlarmDialog from '../components/EditAlarmDialog/ConfigureAlarmDialog';
 
-import { AlarmConfiguration, DayOfWeek } from '../types/alarmConfiguration';
-import { createAlarm, getAlarms, updateAlarm } from '../api/alarmApi';
+import { AlarmConfiguration } from '../types/alarmConfiguration';
+import {
+  createAlarm,
+  deleteAlarm,
+  getAlarms,
+  updateAlarm,
+} from '../api/alarmApi';
 import { DateTime } from 'luxon';
 
 const AlarmPage: React.FC = () => {
@@ -90,6 +95,14 @@ const AlarmPage: React.FC = () => {
           setCurrentAlarm(null);
           setAlarms(await getAlarms());
           setIsOpen(false);
+        }}
+        onDelete={async () => {
+          if (currentAlarm) {
+            await deleteAlarm(currentAlarm?.id);
+            setCurrentAlarm(null);
+            setAlarms(await getAlarms());
+            setIsOpen(false);
+          }
         }}
       />
     </Page>
