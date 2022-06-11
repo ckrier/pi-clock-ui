@@ -5,7 +5,7 @@ const Page: React.FC = ({ children }) => {
     <div
       style={{
         padding: 12,
-        height: '100%',
+        height: 'calc(100% - 56px)', // to account for fixed bottom bar. 56 height
         width: '100%',
         overflow: 'scroll',
       }}
