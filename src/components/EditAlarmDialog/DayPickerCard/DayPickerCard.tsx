@@ -23,13 +23,14 @@ const DayPickerCard: React.FC<DayPickerCardProps> = ({
   onScheduleToggled,
   schedule,
 }) => {
+  console.log(isScheduleEnabled);
   return (
     <Card>
       <CardHeader
         title="Schedule"
         action={
           <Switch
-            value={isScheduleEnabled}
+            checked={isScheduleEnabled}
             onChange={(_, toggle) => onScheduleToggled(toggle)}
           />
         }

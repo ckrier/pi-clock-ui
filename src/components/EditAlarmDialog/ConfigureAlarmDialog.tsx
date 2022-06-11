@@ -13,7 +13,7 @@ import { CloseRounded } from '@mui/icons-material';
 import Page from '../Page/Page';
 import TimePickerCard from './TimePickerCard/TimePickerCard';
 import DayPickerCard from './DayPickerCard/DayPickerCard';
-import { AlarmConfiguration, DayOfWeek } from '../../types/alarmConfiguration';
+import { DayOfWeek } from '../../types/alarmConfiguration';
 
 interface EditAlarmDialogProps {
   defaultDate?: Date;
