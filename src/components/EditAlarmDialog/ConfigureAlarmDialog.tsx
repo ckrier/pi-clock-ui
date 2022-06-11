@@ -4,10 +4,12 @@ import {
   Button,
   Dialog,
   IconButton,
+  Slide,
   Stack,
   Toolbar,
   Typography,
 } from '@mui/material';
+import { TransitionProps } from '@mui/material/transitions';
 import { CloseRounded } from '@mui/icons-material';
 
 import Page from '../Page/Page';
@@ -44,7 +46,12 @@ const EditAlarmDialog: React.FC<EditAlarmDialogProps> = ({
   }, [defaultDate, defaultSchedule]);
 
   return (
-    <Dialog fullScreen open={isOpen} onClose={onCancel}>
+    <Dialog
+      fullScreen
+      open={isOpen}
+      onClose={onCancel}
+      TransitionComponent={DialogTransition}
+    >
       <AppBar sx={{ position: 'relative' }}>
         <Toolbar>
           <IconButton
@@ -88,5 +95,16 @@ const EditAlarmDialog: React.FC<EditAlarmDialogProps> = ({
     </Dialog>
   );
 };
+
+const DialogTransition = React.forwardRef(
+  (
+    props: TransitionProps & {
+      children: React.ReactElement;
+    },
+    ref
+  ) => {
+    return <Slide direction="up" ref={ref} {...props} />;
+  }
+);
 
 export default EditAlarmDialog;
