@@ -7,7 +7,7 @@ import {
   Switch,
   Typography,
 } from '@mui/material';
-import { formatTime } from '../../util/timeHelpers';
+import { formatTime, getAmPm } from '../../util/timeHelpers';
 
 interface AlarmCardProps {
   hour: number;
@@ -33,7 +33,12 @@ const AlarmCard: React.FC<AlarmCardProps> = ({
             direction="row"
             justifyContent="space-between"
           >
-            <Typography variant="h4">{formatTime(hour, minute)}</Typography>
+            <Typography variant="h4">
+              {formatTime(hour, minute)}
+              <Typography variant="h6" component="span">
+                {getAmPm(hour)}
+              </Typography>
+            </Typography>
             <Switch
               checked={enabled}
               onMouseDown={(e) => e.stopPropagation()} // stops ripple effect on ButtonBase
