@@ -20,7 +20,7 @@ const TimePickerCard: React.FC<TimePickerCardProps> = ({ time, onChange }) => {
               if (newDate) onChange(new Date(newDate));
             }}
             renderInput={(params) => <TextField {...params} />}
-            toolbarTitle="Wake up at:"
+            toolbarTitle="Go of at:"
             ToolbarComponent={(f) => (
               <TimeDisplay
                 {...f}
