@@ -3,9 +3,9 @@ import { LocalizationProvider } from '@mui/lab';
 import AdapterDateLuxon from '@mui/lab/AdapterLuxon';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import NavigationBar from './components/NavigationBar/NavigationBar';
 import { themeOptions } from './components/Theme/Theme';
 import AlarmPage from './pages/AlarmPage';
+import ClockFacePage from './pages/ClockFacePage';
 import RouteConstants from './types/routes';
 
 function App() {
@@ -16,8 +16,8 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path={RouteConstants.ALARMS} element={<AlarmPage />} />
+            <Route path="/clock" element={<ClockFacePage />} />
           </Routes>
-          <NavigationBar />
         </BrowserRouter>
       </LocalizationProvider>
     </ThemeProvider>

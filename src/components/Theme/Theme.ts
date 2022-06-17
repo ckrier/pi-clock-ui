@@ -108,10 +108,10 @@ export const themeOptions: ThemeOptions = {
     },
   },
   typography: {
-    fontFamily: 'Montserrat',
-    fontWeightLight: 500,
-    fontWeightRegular: 600,
-    fontWeightMedium: 700,
-    fontWeightBold: 900,
+    fontFamily: 'Chakra Petch',
+    // fontWeightLight: 500,
+    // fontWeightRegular: 600,
+    // fontWeightMedium: 700,
+    // fontWeightBold: 900,
   },
 };

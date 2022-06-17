@@ -1,7 +1,6 @@
 import { AlarmConfiguration, DayOfWeek } from '../types/alarmConfiguration';
 
-// trailing slash is import in firefox because after CORS preflight it adds it
-const BASE_URL = 'http://localhost:5000/alarms';
+const BASE_URL = 'http://192.168.86.234:5000/alarms';
 
 export const getAlarms = async () => {
   const response = await fetch(BASE_URL);

@@ -32,7 +32,7 @@ const AlarmPage: React.FC = () => {
   }, []);
 
   return (
-    <Page>
+    <Page hasNav>
       <Stack direction="column" spacing="8px">
         {alarms.map((a, index) => (
           <AlarmCard

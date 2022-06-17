@@ -1,16 +1,24 @@
 import React from 'react';
+import NavigationBar from '../NavigationBar/NavigationBar';
 
-const Page: React.FC = ({ children }) => {
+interface PageProps {
+  hasNav?: boolean;
+}
+
+const Page: React.FC<PageProps> = ({ hasNav = false, children }) => {
   return (
     <div
       style={{
-        padding: 12,
-        height: 'calc(100% - 56px)', // to account for fixed bottom bar. 56 height
+        paddingTop: 12,
+        paddingLeft: 12,
+        paddingRight: 12,
+        paddingBottom: hasNav ? undefined : 12,
         width: '100%',
         overflow: 'scroll',
       }}
     >
       {children}
+      {hasNav && <NavigationBar />}
     </div>
   );
 };
