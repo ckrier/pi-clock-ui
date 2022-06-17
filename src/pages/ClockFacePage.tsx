@@ -1,6 +1,17 @@
-import React from 'react';
+import { DateTime } from 'luxon';
+import React, { useEffect, useState } from 'react';
 
 const ClockFacePage: React.FC = () => {
+  const [currentTime, setCurrentTime] = useState(new Date());
+
+  useEffect(() => {
+    const interval = setInterval(() => setCurrentTime(new Date()), 1000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
   return (
     <div
       style={{
@@ -19,7 +30,7 @@ const ClockFacePage: React.FC = () => {
           fontWeight: 700,
         }}
       >
-        12:45 PM
+        {DateTime.fromJSDate(currentTime).toLocaleString(DateTime.TIME_SIMPLE)}
       </h1>
     </div>
   );
