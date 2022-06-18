@@ -1,5 +1,6 @@
 import { DateTime } from 'luxon';
 import React, { useEffect, useState } from 'react';
+import { stopSound } from '../api/soundApi';
 
 const ClockFacePage: React.FC = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
@@ -19,14 +20,15 @@ const ClockFacePage: React.FC = () => {
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: 'black',
-        width: '100%',
-        height: '100%',
+        width: '100vw',
+        height: '100vh',
       }}
+      onClick={stopSound}
     >
       <h1
         style={{
           color: 'white',
-          fontSize: '128px',
+          fontSize: '8rem',
           fontWeight: 700,
         }}
       >
