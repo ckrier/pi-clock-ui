@@ -90,7 +90,12 @@ const EditAlarmDialog: React.FC<EditAlarmDialogProps> = ({
           <TimePickerCard time={date} onChange={(t) => setDate(t)} />
           <DayPickerCard
             isScheduleEnabled={isScheduleEnabled}
-            onScheduleToggled={setIsScheduleEnabled}
+            onScheduleToggled={(isEnabled) => {
+              setIsScheduleEnabled(isEnabled);
+              if (!isEnabled) {
+                setSchedule(undefined);
+              }
+            }}
             schedule={schedule || []}
             onScheduleChanged={setSchedule}
           />
