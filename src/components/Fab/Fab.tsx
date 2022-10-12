@@ -9,8 +9,14 @@ const Fab: React.FC<MaterialFabProps> = (props) => {
   return (
     <MaterialFab
       {...props}
-      size="large"
-      sx={{ ...props.sx, position: 'fixed', bottom: 68, right: 12 }}
+      sx={{
+        width: 64,
+        height: 64,
+        ...props.sx,
+        position: 'fixed',
+        bottom: 68,
+        right: 12,
+      }}
     />
   );
 };

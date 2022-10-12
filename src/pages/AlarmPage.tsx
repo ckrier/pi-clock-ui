@@ -62,7 +62,7 @@ const AlarmPage: React.FC = () => {
         ))}
       </Stack>
       <Fab color="primary" onClick={() => setIsOpen(true)}>
-        <AddAlarm></AddAlarm>
+        <AddAlarm sx={{ fontSize: '32px' }}></AddAlarm>
       </Fab>
       <EditAlarmDialog
         defaultDate={
