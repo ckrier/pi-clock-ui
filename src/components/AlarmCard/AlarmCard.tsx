@@ -33,9 +33,9 @@ const AlarmCard: React.FC<AlarmCardProps> = ({
             direction="row"
             justifyContent="space-between"
           >
-            <Typography variant="h4">
+            <Typography variant="h2">
               {formatTime(hour, minute)}
-              <Typography variant="h6" component="span">
+              <Typography variant="h4" component="span">
                 {getAmPm(hour)}
               </Typography>
             </Typography>

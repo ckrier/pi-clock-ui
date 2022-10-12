@@ -73,16 +73,16 @@ export const themeOptions: ThemeOptions = {
     MuiSwitch: {
       styleOverrides: {
         root: {
-          width: 42,
-          height: 26,
+          width: 64,
+          height: 32,
           padding: 0,
           margin: 8,
         },
         switchBase: {
-          padding: 1,
+          padding: 2,
           '&.Mui-checked': {
             background: '#9055ff',
-            transform: 'translateX(16px)',
+            transform: 'translateX(32px)',
             color: '#fff',
             '& + .MuiSwitch-track': {
               backgroundColor: '#9055ff',
@@ -94,11 +94,11 @@ export const themeOptions: ThemeOptions = {
           },
         },
         thumb: {
-          width: 24,
-          height: 24,
+          width: 28,
+          height: 28,
         },
         track: {
-          borderRadius: 13,
+          borderRadius: 100,
           border: '1px solid #bdbdbd',
           background: '#fafafa',
           opacity: 0.2,
