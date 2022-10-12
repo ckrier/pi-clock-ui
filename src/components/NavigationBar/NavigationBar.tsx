@@ -12,7 +12,7 @@ const NavigationBar: React.FC = () => {
     <BottomNavigation
       onChange={(_, newTabIndex) => setSelectedTabIndex(newTabIndex)}
       showLabels
-      sx={{ bottom: 0, position: 'fixed', width: '100%' }}
+      sx={{ left: 0, bottom: 0, position: 'fixed', width: '100%' }}
       value={selectedTabIndex}
     >
       <BottomNavigationAction
