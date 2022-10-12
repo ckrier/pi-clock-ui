@@ -16,15 +16,15 @@ const TimePickerCard: React.FC<TimePickerCardProps> = ({ time, onChange }) => {
           <StaticTimePicker
             displayStaticWrapperAs="mobile"
             value={time}
-            onChange={(newDate) => {
+            onChange={(newDate: any) => {
               if (newDate) onChange(new Date(newDate));
             }}
-            renderInput={(params) => <TextField {...params} />}
+            renderInput={(params: any) => <TextField {...params} />}
             toolbarTitle="Go off at:"
-            ToolbarComponent={(f) => (
+            ToolbarComponent={(f: any) => (
               <TimeDisplay
                 {...f}
-                onChange={(d, ss) => {
+                onChange={(d: any, ss: any) => {
                   f.onChange(d, ss);
                   if (d) onChange(d);
                 }}

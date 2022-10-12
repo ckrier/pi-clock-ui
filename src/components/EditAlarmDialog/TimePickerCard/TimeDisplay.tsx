@@ -7,12 +7,14 @@ import {
   useTheme,
   TypographyPropsVariantOverrides,
 } from '@mui/material';
-import { ToolbarComponentProps } from '@mui/lab/internal/pickers/typings/BasePicker';
 import { DateTime } from 'luxon';
 import { formatHour, formatMinute } from '../../../util/timeHelpers';
-import { AllAvailableViews } from '@mui/lab/internal/pickers/typings/Views';
 
-const TimeDisplay: React.FC<ToolbarComponentProps<Date | null>> = ({
+// uncomment for type support during dev. won't work with 'yarn build'
+//import { ToolbarComponentProps } from '@mui/lab/internal/pickers/typings/BasePicker';
+//import { AllAvailableViews } from '@mui/lab/internal/pickers/typings/Views';
+
+const TimeDisplay: React.FC<any> = ({
   date,
   toolbarTitle,
   onChange,
@@ -26,7 +28,7 @@ const TimeDisplay: React.FC<ToolbarComponentProps<Date | null>> = ({
   const theme = useTheme();
 
   const generateTypographyProps = (
-    view?: AllAvailableViews
+    view?: any
   ): TypographyPropsVariantOverrides => {
     return {
       variant: 'h3',
