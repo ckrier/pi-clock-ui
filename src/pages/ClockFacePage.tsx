@@ -38,7 +38,7 @@ const ClockFacePage: React.FC = () => {
 
     const refreshInterval = setInterval(
       async () => setAlarms(await getAlarms()),
-      1000 * 60
+      1000 * 30
     );
 
     return () => {
@@ -63,7 +63,7 @@ const ClockFacePage: React.FC = () => {
       const dtA = toDateTime(a);
       const dtB = toDateTime(b);
 
-      return dtA.diff(dtB).minutes;
+      return dtA.diff(dtB, 'minutes').minutes;
     });
 
     const first = enabled[0];
