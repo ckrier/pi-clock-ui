@@ -1,4 +1,4 @@
-const BASE_URL = 'http://192.168.86.234:5000/sounds';
+const BASE_URL = `http://${process.env.REACT_APP_MACHINE_IP}:5000/sounds`;
 
 export const stopSound = async () => {
   const response = await fetch(`${BASE_URL}/stop`, {

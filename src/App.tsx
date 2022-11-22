@@ -7,6 +7,7 @@ import { themeOptions } from './components/Theme/Theme';
 import AlarmPage from './pages/AlarmPage';
 import ClockFacePage from './pages/ClockFacePage';
 import RouteConstants from './types/routes';
+import SettingsPage from './pages/SettingsPage';
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path={RouteConstants.ALARMS} element={<AlarmPage />} />
-            <Route path="/clock" element={<ClockFacePage />} />
+            <Route path={RouteConstants.CLOCK} element={<ClockFacePage />} />
+            <Route path={RouteConstants.SETTINGS} element={<SettingsPage />} />
           </Routes>
         </BrowserRouter>
       </LocalizationProvider>

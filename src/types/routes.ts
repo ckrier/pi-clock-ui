@@ -1,7 +1,8 @@
 enum RouteConstants {
-  ALARMS = "/",
-  MUSIC = "/music",
-  SETTINGS = "/settings",
+  ALARMS = '/',
+  CLOCK = '/clock',
+  MUSIC = '/music',
+  SETTINGS = '/settings',
 }
 
 export default RouteConstants;
