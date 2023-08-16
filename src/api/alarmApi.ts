@@ -1,6 +1,6 @@
 import { AlarmConfiguration, DayOfWeek } from '../types/alarmConfiguration';
 
-const BASE_URL = `http://${process.env.REACT_APP_MACHINE_IP}:5000/alarms`;
+const BASE_URL = `http://piclock.local:5000/alarms`;
 
 export const getAlarms = async () => {
   const response = await fetch(BASE_URL);
