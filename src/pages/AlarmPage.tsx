@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { Stack } from '@mui/material';
-import { AddAlarm } from '@mui/icons-material';
+import React, { useEffect, useState } from "react";
+import { Stack } from "@mui/material";
+import { AddAlarm } from "@mui/icons-material";
 
-import Page from '../components/Page/Page';
-import AlarmCard from '../components/AlarmCard/AlarmCard';
-import Fab from '../components/Fab/Fab';
-import EditAlarmDialog from '../components/EditAlarmDialog/ConfigureAlarmDialog';
+import Page from "../components/Page/Page";
+import AlarmCard from "../components/AlarmCard/AlarmCard";
+import Fab from "../components/Fab/Fab";
+import EditAlarmDialog from "../components/EditAlarmDialog/ConfigureAlarmDialog";
 
-import { AlarmConfiguration } from '../types/alarmConfiguration';
+import { AlarmConfiguration } from "../types/alarmConfiguration";
 import {
   createAlarm,
   deleteAlarm,
   getAlarms,
   updateAlarm,
-} from '../api/alarmApi';
-import { DateTime } from 'luxon';
+} from "../api/alarmApi";
+import { DateTime } from "luxon";
 
 const AlarmPage: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -62,7 +62,7 @@ const AlarmPage: React.FC = () => {
         ))}
       </Stack>
       <Fab color="primary" onClick={() => setIsOpen(true)}>
-        <AddAlarm sx={{ fontSize: '32px' }}></AddAlarm>
+        <AddAlarm sx={{ fontSize: "32px" }}></AddAlarm>
       </Fab>
       <EditAlarmDialog
         defaultDate={
@@ -74,18 +74,20 @@ const AlarmPage: React.FC = () => {
             : undefined
         }
         defaultSchedule={currentAlarm ? currentAlarm.schedule : undefined}
+        defaultFadeInDuration={currentAlarm?.fadeInDuration}
         isOpen={isOpen}
         onCancel={() => {
           setCurrentAlarm(null);
           setIsOpen(false);
         }}
-        onSave={async (date, schedule) => {
+        onSave={async (date, fadeIn, schedule) => {
           const dt = DateTime.fromJSDate(date);
           if (currentAlarm) {
             await updateAlarm({
               ...currentAlarm,
               hour: dt.hour,
               minute: dt.minute,
+              fadeInDuration: fadeIn,
               schedule: schedule && schedule.length > 0 ? schedule : undefined,
             });
           } else {

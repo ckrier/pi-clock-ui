@@ -1,4 +1,4 @@
-import { AlarmConfiguration, DayOfWeek } from '../types/alarmConfiguration';
+import { AlarmConfiguration, DayOfWeek } from "../types/alarmConfiguration";
 
 const BASE_URL = `http://piclock.local:5000/alarms`;
 
@@ -10,17 +10,19 @@ export const getAlarms = async () => {
 export const createAlarm = async (
   hour: number,
   minute: number,
-  schedule?: DayOfWeek[]
+  schedule?: DayOfWeek[],
+  fadeInDuration: number = 0
 ) => {
   // trailing slash is reuired for some reason for POST specifically
   // likely because firefox adds it after CORS preflight options check
-  const response = await fetch(BASE_URL + '/', {
-    method: 'POST',
+  const response = await fetch(BASE_URL + "/", {
+    method: "POST",
     body: JSON.stringify({
       enabled: false,
       hour,
       minute,
       schedule,
+      fadeInDuration,
     }),
   });
 
@@ -30,7 +32,7 @@ export const createAlarm = async (
 export const updateAlarm = async (alarm: AlarmConfiguration) => {
   const { id, ...rest } = alarm;
   const response = await fetch(`${BASE_URL}/${id}`, {
-    method: 'PUT',
+    method: "PUT",
     body: JSON.stringify(rest),
   });
 
@@ -39,6 +41,6 @@ export const updateAlarm = async (alarm: AlarmConfiguration) => {
 
 export const deleteAlarm = async (alarmId: string) => {
   await fetch(`${BASE_URL}/${alarmId}`, {
-    method: 'DELETE',
+    method: "DELETE",
   });
 };

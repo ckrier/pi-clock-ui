@@ -13,6 +13,7 @@ type AlarmConfiguration = {
   hour: number;
   minute: number;
   schedule?: DayOfWeek[];
+  fadeInDuration: number
 };
 
 export type { AlarmConfiguration, DayOfWeek };
