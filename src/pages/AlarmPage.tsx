@@ -91,7 +91,7 @@ const AlarmPage: React.FC = () => {
               schedule: schedule && schedule.length > 0 ? schedule : undefined,
             });
           } else {
-            await createAlarm(dt.hour, dt.minute, schedule);
+            await createAlarm(dt.hour, dt.minute, schedule, fadeIn);
           }
 
           setCurrentAlarm(null);
